@@ -27,3 +27,6 @@ def count_melons(melon_list):
             melon_counts[melon] = 1
 
     return melon_counts
+
+
+print(count_melons(melons_to_add))
