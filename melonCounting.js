@@ -15,20 +15,44 @@ const melonsToAdd = ['Ogen', 'Horned Melon', 'Watermelon', 'Casaba',
                     'Watermelon', 'Santa Claus', 'Casaba']
 
 
-const countMelons = (melonArray) => {
-    // Take in an array and return a object of # of melons by melon type.
+// const countMelons = (melonArray) => {
+//     // Take in an array and return a object of # of melons by melon type.
 
-    const melonCounts = {};
+//     const melonCounts = {};
 
-    for (const melon of melonArray) {
-        if (melonCounts[melon]) {
-            melonCounts[melon] += 1;
-        } else {
-            melonCounts[melon] = 1;
-        }
-    }
+//     for (const melon of melonArray) {
+//         if (melonCounts[melon]) {
+//             melonCounts[melon] += 1;
+//         } else {
+//             melonCounts[melon] = 1;
+//         }
+//     }
 
+//     return melonCounts;
+// }
+
+// console.log(countMelons(melonsToAdd));
+
+
+// Refactor with Array.reduce()
+// const countMelons = melonsToAdd.reduce((melonCounts, melon) => {
+//     if (melonCounts[melon]) {
+//         melonCounts[melon] += 1;
+//     } else {
+//         melonCounts[melon] = 1;
+//     }
+    
+//     return melonCounts;
+// }, {});
+
+// console.log(countMelons)
+
+
+// Use short circuit
+const countMelons = melonsToAdd.reduce((melonCounts, melon) => {
+    melonCounts[melon] = (melonCounts[melon] || 0) + 1;
+    
     return melonCounts;
-}
+}, {});
 
-console.log(countMelons(melonsToAdd));
+console.log(countMelons)
